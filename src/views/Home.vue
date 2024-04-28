@@ -158,13 +158,13 @@
         <v-tooltip top>
           <template v-slot:activator="{ on, attrs }">
             <v-img
-              src="../assets/vue.png"
+              src="../assets/node.png"
               v-bind="attrs"
               v-on="on"
-              style="height:25px; bottom: 0%; right: 5.7%; position: fixed;"
+              style="height:30px; bottom: 0%; right: 5.7%; position: fixed;"
             ></v-img>
           </template>
-          <span>Vue</span>
+          <span>Node.js</span>
         </v-tooltip>
 
         <v-tooltip top>
@@ -191,7 +191,7 @@
           <span>Vue</span>
         </v-tooltip>
         
-        <span class="text" style="bottom: 0.3%; right: 0.5%; position: fixed; font-size: 16px;">{{  timestamp }}</span>
+        <span class="text ml-5" style="bottom: 0.3%; right: 0.5%; position: fixed; font-size: 16px;">{{  timestamp }}</span>
         </v-system-bar>
       </v-img>
       </v-col>
