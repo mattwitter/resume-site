@@ -1,28 +1,47 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-app id="app">
+    <v-col>
+        <transition mode="out-in">
+          <router-view :key="$route.path"/>
+        </transition>
+      </v-col>
+    <v-snackbar
+      v-model="$root.snackbar.enabled"
+      :color="$root.snackbar.color"
+      :timeout="$root.snackbar.timeout"
+    >
+      {{ $root.snackbar.text }}
+    </v-snackbar>
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'App',
+  name: "App",
+  
   components: {
-    HelloWorld
+  },
+
+  methods: {
+
+  },
+
+  created() {
   }
 }
+
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+@import url('https://fonts.cdnfonts.com/css/w95fa');
+
+html { 
+  overflow-y: hidden 
 }
+
+.text { 
+  font-family: 'W95FA', sans-serif; 
+  font-size: 18px; 
+}
+
 </style>
