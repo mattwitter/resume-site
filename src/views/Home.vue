@@ -161,7 +161,7 @@
               src="../assets/node.png"
               v-bind="attrs"
               v-on="on"
-              style="height:30px; bottom: 0%; right: 5.7%; position: fixed;"
+              style="height:30px; width: 30px; bottom: 0%; right: 5.7%; position: fixed;"
             ></v-img>
           </template>
           <span>Node.js</span>
