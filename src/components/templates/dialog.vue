@@ -1,6 +1,6 @@
 <template>
   <v-dialog v-model="dialog" max-width="300px" max-height="500px" persistent hide-overlay>
-    <div class="windows-explorer" ref="explorerDialog" style="width: 700px; height: 1000px;">
+    <div class="windows-explorer" ref="explorerDialog" style="width: 35%; height: 80%;">
       <!-- Your dialog content here -->
       <v-card-title class="windows-explorer-title" @mousedown.prevent="startDragging">
         <span class="windows-explorer-title-text">{{ title }}</span>
