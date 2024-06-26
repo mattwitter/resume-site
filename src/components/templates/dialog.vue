@@ -37,7 +37,7 @@
         <!-- Your dialog content here -->
         <div class="custom-dialog-body">
         <!-- Embedding PDF using iframe -->
-        <iframe style="height: 60%" src="https://mwitter-resume-pdf.s3.amazonaws.com/MatthewWitterResume.pdf" class="pdf-viewer"></iframe>
+        <iframe style="height: 90%" src="https://mwitter-resume-pdf.s3.amazonaws.com/MatthewWitterResume.pdf" class="pdf-viewer"></iframe>
       </div>
       </v-card-text>
     </div>
@@ -91,6 +91,8 @@ export default {
 <style>
 .windows-explorer {
   position: fixed;
+  top: 10%;
+  left: 10%;
   background-color: #c0c0c0;
   border: 2px solid #808080;
   border-radius: 6px;
