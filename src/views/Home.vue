@@ -20,13 +20,41 @@
               <v-btn
                 rounded
                 color="success"
-                @click="overlay = false"
+                @click="overlay = false, changeLog = true"
+              >
+              Continue
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
+
+        <v-dialog
+          v-model="changeLog"
+          persistent
+          max-width="900"
+        >
+          <v-card>
+            <v-card-title class="text justify-center" style="font-size: xx-large;">
+              Upcoming Changes:
+            </v-card-title>
+            <v-spacer></v-spacer>
+            <v-card-text class="text" style="font-size: larger;">
+              - Minimize/maximize animation for resume dialog. <br/>
+              - Change from inline styling (why did I do so much of that???) to dedicated classes
+            </v-card-text>
+
+            <v-card-actions class="justify-center">
+              <v-btn
+                rounded
+                color="success"
+                @click="overlay = false, changeLog = false"
               >
               Continue To Site
               </v-btn>
             </v-card-actions>
           </v-card>
         </v-dialog>
+
         <v-img
           src="../assets/background.png"
           style="
@@ -72,7 +100,7 @@
           <DialogWindow
             v-if="resume"
             :isEnabled="resume"
-            :resume="resume"
+            :visible.sync="resume"
             >
           </DialogWindow>
           <v-system-bar 
@@ -141,27 +169,15 @@
               </v-list-item>
             </v-list>
           </v-menu>
-          
-          <v-btn
-            class="mr-1"
-            disabled
-            style="
-              right: 0%;
-              bottom: 0%; 
-              position: fixed;
-              height: 30px;
-              width: 250px;
-              background-color:#c0c0c0;"
-          >     
-          </v-btn>
-
+         
+        <v-container class="trayContainer">
         <v-tooltip top>
           <template v-slot:activator="{ on, attrs }">
             <v-img
               src="../assets/node.png"
               v-bind="attrs"
               v-on="on"
-              style="height:30px; width: 30px; bottom: 0%; right: 5.7%; position: fixed;"
+              class="trayContent"
             ></v-img>
           </template>
           <span>Node.js</span>
@@ -173,7 +189,7 @@
               src="../assets/vuetify.png"
               v-bind="attrs"
               v-on="on"
-              style="height:28px; bottom: 0%; right: 7.2%; position: fixed;"
+              class="trayContent"
             ></v-img>
           </template>
           <span>Vuetify</span>
@@ -185,13 +201,18 @@
               src="../assets/vue.png"
               v-bind="attrs"
               v-on="on"
-              style="height:25px; bottom: 0%; right: 8.5%; position: fixed;"
+              class="trayContent"
             ></v-img>
           </template>
           <span>Vue</span>
         </v-tooltip>
-        
-        <span class="text ml-5" style="bottom: 0.3%; right: 0.5%; position: fixed; font-size: 16px;">{{  timestamp }}</span>
+
+        <div 
+          class="text trayTime"
+          >
+          {{ timestamp }}
+        </div>
+      </v-container>
         </v-system-bar>
       </v-img>
       </v-col>
@@ -214,6 +235,7 @@ data: () => ({
   //state
   resume: false,
   overlay: true,
+  changeLog: false,
   timestamp: "",
 
   items: [
@@ -255,6 +277,29 @@ created() {
 }
 </script>
 
-<style>
-
+<style scoped>
+  .trayContainer {
+    display: inline-flex;
+    position: absolute;
+    border: 1px solid black;
+    width: fit-content;
+    height: 30px;
+    bottom: 0;
+    right: 0;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    white-space: nowrap;
+    text-align: center;
+  }
+  .trayContent {
+    display: inline-flex;
+    height: 20px;
+    width: 30px;
+  }
+  .trayTime {
+    display: inline-flex;
+    height: 30px;
+    width: auto;
+    padding-left: 2px;
+  }
 </style>

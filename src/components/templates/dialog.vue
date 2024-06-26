@@ -27,7 +27,7 @@
             x-small
             style="background-color: #c0c0c0; height: 100%"
             class="mb-1 mr-1"
-            @click="dialog = false, resume = false"
+            @click="close(), resume = false"
           >
             <v-icon>mdi-close-box-outline</v-icon>
           </v-btn>
@@ -37,7 +37,7 @@
         <!-- Your dialog content here -->
         <div class="custom-dialog-body">
         <!-- Embedding PDF using iframe -->
-        <iframe style="height: 95%" src="https://mwitter-resume-pdf.s3.amazonaws.com/MatthewWitterResume.pdf" class="pdf-viewer"></iframe>
+        <iframe style="height: 75%" src="https://mwitter-resume-pdf.s3.amazonaws.com/MatthewWitterResume.pdf" class="pdf-viewer"></iframe>
       </div>
       </v-card-text>
     </div>
@@ -57,7 +57,7 @@ export default {
     };
   },
   props: {
-    resume: {
+    visible: {
       type: Boolean,
       required: true,
     },
@@ -80,6 +80,9 @@ export default {
     stopDragging() {
       document.removeEventListener('mousemove', this.handleMouseMove);
       document.removeEventListener('mouseup', this.stopDragging);
+    },
+    close() {
+      this.$emit('update:visible', false);
     }
   }
 };
@@ -129,6 +132,7 @@ export default {
 .custom-dialog-background {
   background-color: #c0c0c0;
 }
+
 .custom-dialog-close {
   position: absolute;
   justify-content: center;
