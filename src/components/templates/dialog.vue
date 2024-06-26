@@ -37,7 +37,7 @@
         <!-- Your dialog content here -->
         <div class="custom-dialog-body">
         <!-- Embedding PDF using iframe -->
-        <iframe style="height: 75%" src="https://mwitter-resume-pdf.s3.amazonaws.com/MatthewWitterResume.pdf" class="pdf-viewer"></iframe>
+        <iframe style="height: 60%" src="https://mwitter-resume-pdf.s3.amazonaws.com/MatthewWitterResume.pdf" class="pdf-viewer"></iframe>
       </div>
       </v-card-text>
     </div>
