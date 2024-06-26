@@ -101,7 +101,7 @@
             v-if="resume"
             :isEnabled="resume"
             :visible.sync="resume"
-            >
+          >
           </DialogWindow>
           <v-system-bar 
           height="30"
@@ -213,7 +213,7 @@
           {{ timestamp }}
         </div>
       </v-container>
-        </v-system-bar>
+      </v-system-bar>
       </v-img>
       </v-col>
     </v-row>
@@ -281,7 +281,7 @@ created() {
   .trayContainer {
     display: inline-flex;
     position: absolute;
-    border: 1px solid black;
+    border: 1px solid darkslategray;
     width: fit-content;
     height: 30px;
     bottom: 0;
@@ -290,6 +290,7 @@ created() {
     align-items: center; /* Center vertically */
     white-space: nowrap;
     text-align: center;
+    background-color: darkgray;
   }
   .trayContent {
     display: inline-flex;
