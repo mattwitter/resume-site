@@ -1,6 +1,6 @@
 <template>
   <v-dialog v-model="dialog" max-width="300px" max-height="500px" persistent hide-overlay>
-    <div class="windows-explorer" ref="explorerDialog" style="width: 35%; height: 80%;">
+    <div class="windows-explorer" ref="explorerDialog" style="width: 700px; height: 1000px;">
       <!-- Your dialog content here -->
       <v-card-title class="windows-explorer-title" @mousedown.prevent="startDragging">
         <span class="windows-explorer-title-text">{{ title }}</span>
@@ -37,7 +37,7 @@
         <!-- Your dialog content here -->
         <div class="custom-dialog-body">
         <!-- Embedding PDF using iframe -->
-        <iframe style="height: 90%" src="https://mwitter-resume-pdf.s3.amazonaws.com/MatthewWitterResume.pdf" class="pdf-viewer"></iframe>
+        <iframe style="height: 90%;" src="https://mwitter-resume-pdf.s3.amazonaws.com/MatthewWitterResume.pdf" class="pdf-viewer"></iframe>
       </div>
       </v-card-text>
     </div>
